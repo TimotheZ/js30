@@ -1,5 +1,5 @@
-                                                             https://javascript30.com/
----------------------------------------------------------------- CHALLENGE JS 30 -------------------------------------------------------------------
+                                 https://javascript30.com/
+------------------------------------ CHALLENGE JS 30 ---------------------------
 
 
 Formation Javascript, où chaque jour un exercice est fait pour permettre de travailler sur le Javascript, HTML et le CSS.
