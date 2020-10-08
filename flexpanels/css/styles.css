@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.panels {
+    min-height: 100vh; /* vh = viewport height, viewport = zone de visualisation du navigateur */
+    overflow: hidden;
+    display: flex;
+}
+
+.panel {
+    flex: 1; /* pour remplir équitablement l'espace disponible du conteneur*/
+    color: white;
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    transition: 
+        font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        background 0.2s;
+}
+
+.panel1 {
+    background-image: url('../img/berserk.jpg');
+}
+
+.panel2 {
+    background-image: url('../img/nebula.jpg');
+}
+
+.panel3 {
+    background-image: url('../img/musique.jpg');
+}
+
+.panel4 {
+    background-image: url('../img/fleur.jpg');
+}
+
+
+/* Flex items : */
+
+.panel > * { /* permet de sélectionner les nœuds qui sont des fils directs d'un élément donné. */
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s;
+    justify-content: center;
+    flex: 1 0 auto;
+    align-items: center;
+    display: flex;
+/* Exemple pour le selecteur '>' : ul > li permettra de cibler tous les éléments <li> qui sont directement situés sous un élément <ul>*/
+}
+
+.panel p:first-child {
+    transform: translateY(-100%);
+    /* Le premier paragraphe est envoyé au dessus de l'ecran de l'ordinateur donc non visible */
+}
+
+.panel.open-active > *:first-child {
+    transform: translateY(0);
+    /* Lorsqu'on va appelé la classe open-active, le premier paragraphe va etre visible sur l'ecran */
+}
+
+.panel p:last-child {
+    transform: translateY(100%);
+    /* Le dernier paragraphe est envoyé en dessous de l'ecran de l'ordinateur donc non visible */
+}
+
+.panel.open-active > *:last-child {
+    transform: translateY(0);
+}
+
+.panel p {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.panel p:nth-child(2) {
+    font-size: 3rem;
+}
+
+.panel.open {
+    flex: 5; /* Lorsqu'il va s'ouvrir ça largeur sera plus importante */
+    font-size: 4rem;
+}

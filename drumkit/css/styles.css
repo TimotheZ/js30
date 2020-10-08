@@ -1,0 +1,42 @@
+body {
+    margin:0;
+    padding:0;
+    background-image: url('../background.jpg');
+}
+
+.keys {
+    position: absolute; /* postulat de départ */
+    top: 50%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%);
+}
+
+.key {
+    text-align: center;
+    display: inline-block;
+    border: 4mm ridge rgba(170, 50, 220, .6);
+    border-radius: 10px 100px / 120px;
+    box-shadow: inset 0 0 1em rgb(112, 17, 104), 0 0 2em red;
+    text-shadow: 0 0 5px black;
+    background:rgba(0, 0, 0, 0.4);
+    width: 100px;
+    transition: all 0.07s;
+}
+
+.sound {
+    display: block;
+    font-size: 1.5em;
+    color: #dbc18a;
+    text-transform: uppercase;
+}
+
+kbd {
+    font-size: 2.7em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}

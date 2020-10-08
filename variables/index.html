@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+    <h2>
+        Mettre à jour les variables CSS avec du <span class="colorh2">JS</span> !
+    </h2>
+    <div class="controls">
+        <label for="spacing">Spacing :</label>
+        <input type="range" name="spacing" id="spacing" min="0" max="20" value="0.1" data-sizing="rem">
+
+        <label for="Blur">Blur :</label>
+        <input type="range" name="blur" id="Blur" min="0" max="10" value="0.1" data-sizing="rem">
+
+        <label for="base">Base color :</label>
+        <input type="color" name="base" id="base" value="#ffffab">
+    </div>
+    <img src="nebula.jpg" alt="nebula">
+
+    <script>
+        // Premier etape sélectionner les input pour pourvoir manipuler le style des élements
+        const inputs = document.querySelectorAll('.controls input');
+
+        function handleUpdate() {
+            const suffix = this.dataset.sizing || '';
+            //console.log(this.name); // la console nous dit  sizing : "rem" dataset est un objet qui va chercher tout les data- dans un élement
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+        }
+        inputs.forEach(input => input.addEventListener('change', handleUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+    </script>
+</body>
+</html>

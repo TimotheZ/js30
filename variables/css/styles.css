@@ -1,0 +1,35 @@
+:root {
+    --base: red;
+    --spacing: 0.5rem;
+    --blur: 0.1rem;
+}
+
+body {
+    margin:0;
+    padding:0;
+    background: #193549;
+    text-align: center;
+}
+
+img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+    width: 40%;
+    height: auto;
+    margin-top: 4rem;
+}
+
+label {
+    color: white;
+    font-size: 2rem;
+}
+
+h2 {
+    color: white;
+    font-size: 3rem;
+}
+
+.colorh2 {
+    color: var(--base);
+}

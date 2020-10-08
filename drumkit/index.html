@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript DrumKIT</title>
+</head>
+<body>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="sound">Kick</span>
+        </div>
+        <div data-key="90" class="key">
+            <kbd>Z</kbd>
+            <span class="sound">Clap</span>
+        </div>
+        <div data-key="69" class="key">
+            <kbd>E</kbd>
+            <span class="sound">P-Clap</span>
+        </div>>
+    </div>
+    <audio data-key="65" src="sounds/kick.wav"></audio>
+    <audio data-key="90" src="sounds/clap.wav"></audio>
+    <audio data-key="69" src="sounds/pitchedclap.wav"></audio>
+
+<script>
+    function playSound(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // on selectionne la classe "key"
+
+        if(!audio) return; // si different d'audio on stop
+        audio.currentTime = 0; // permet de revenir au debut
+        audio.play();
+        key.classList.add('playing');  // ici on ajoute à key un style css playing lorsqu'on presse une touche
+    };
+
+    function removeTransition(e) {
+        if(e.propertyName !== 'transform') return; // passe si c'est pas un transform
+        this.classList.remove('playing');
+    }
+
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition)); 
+    window.addEventListener('keydown', playSound);
+</script>
+</body>
+</html>
