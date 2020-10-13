@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+}
+
+.ahead {
+    margin-top: 25rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 30rem;
+}
+
+input {
+    width: 29.5rem;
+    height: 2rem;
+}
+
+.name {
+    color: brown;
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.population {
+    font-weight: bold;
+}
