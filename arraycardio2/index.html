@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array cardio2 !</title>
+</head>
+<body>
+    <script>
+        const people = [
+          { name: 'Wes', year: 1988 },
+          { name: 'Lux', year: 1986 },
+          { name: 'Kyl', year: 1970 },
+          { name: 'Adil', year: 2015 },
+        ];
+
+        const comments = [
+          { text: 'Like it !', id: 523423 },
+          { text: 'Good !', id: 823423 },
+          { text: 'Propre !', id: 2039842 },
+          { text: 'Cool !', id: 123523 },
+          { text: 'Bien joué', id: 542328 },
+        ];
+
+        // 1. Récupérer les personnes majeures dans le tableau array
+        // Array.prototype.some() // some() teste si au moins un élément du tableau passe le test de la condition.
+        // const adulte = people.some(function (person) {
+        //   const currentYear = (new Date()).getFullYear();
+        //   if (currentYear - person.year  >= 19)
+        //     return true;
+        // });
+        // console.log(adulte);
+
+        const adulte2 = people.some(person => {
+          const currentYear = (new Date()).getFullYear();
+          return currentYear -  person.year >= 19;
+        });
+        console.log(adulte2);
+
+
+        // 2. Tester si les personnes dans le tableau people sont tous majeures
+        // Array.prototype.every() // every() permet de tester si tous les éléments du tableau vérifient une condition.
+        // const allAdults = people.every(function (person) {
+        // const currentYear = (new Date()).getFullYear();
+        // if (currentYear - person.year >= 19)
+        //   return true;
+        // });
+        // console.log(allAdults);
+
+        const allAdults2 = people.every(person => {
+          const currentYear = (new Date()).getFullYear();
+          return currentYear -  person.year >= 19;
+        });
+        console.log(allAdults2);
+
+
+        // 3. Trouver le text qui a l'id 823423
+        // Array.prototype.find()
+        // find() fontionne un peu comme filter(), sauf qu'il renvoie la valeur du premier élément trouvé dans le tableau qui respecte la condition
+        const text = comments.find(text => text.id === 823423);
+        console.log(text);
+
+
+        // 4. Trouver le text avvec ette id et le supprimer 823423
+        // Array.prototype.findIndex()
+        // findIndex() renvoie l'indice du premier élément trouvé du tableau qui satisfait une condition. 
+        const index = comments.findIndex(text => text.id === 823423);
+        console.log(index);
+        // comments.splice(index, 1); il va "supprimer" le text avec l'id 823423
+        const newComments = [
+          ...comments.splice(0, index),  // ici on utilise le Spread operator pour récuperer le tableau de base en enlevant le text avec l'id 823423
+          ...comments.splice(index + 1)
+        ];
+    </script>
+</body>
+</html>
