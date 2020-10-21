@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+}
+
+.inbox {
+    border: 1px solid black;
+    width: 20rem;
+    position: absolute; /* postulat de départ */
+    top: 50%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+}
+
+.item {
+    font-size:  1.4rem;
+    border: thick double #32a1ce;
+    line-height: 3rem;
+    background-color: white;
+}
+
+.item p {
+    display: inline;
+    margin-left: 1rem;
+}
+
+input[type=checkbox] {
+    height: 15px;
+    width: 15px;
+}
+
+input[type="checkbox"]:checked + p{
+    text-decoration: line-through;
+    background-color: blanchedalmond;
+}
+
+.advice {
+    width: 15rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15rem;
+    font-weight: bold;
+}

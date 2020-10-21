@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkboxes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p class="advice">Maintenez la touche SHIFT pour sélectionner plusieurs élements</p>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>Boire de l'eau</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Ranger sa chambre</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Déjeuner équilibré</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Faire du sport</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Coder</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Détente</p>
+        </div>
+    </div>
+    <script>
+        const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+        let lastChecked;
+        // cette fonction sert à lorsqu'on maintient SHIFT et qu'on clique sur un checkbox puis un autre elle permet de cocher tous les checkboxes entre
+        // les deux checkboxes selectionnés.
+        function handleCheck(e) {
+          // verifier que la touche SHIFT a été enfoncée
+          // et le vérifier
+          let inBetween = false;
+          if (e.shiftKey && this.checked) {
+            // boucle sur un checkbox
+            checkboxes.forEach(checkbox => {
+              if (checkbox === this || checkbox === lastChecked) {
+                  inBetween =! inBetween;
+              }
+              if (inBetween) {
+                checkbox.checked = true;
+              }
+            });
+          }
+          lastChecked = this;
+        }
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+    </script>
+</body>
+</html>
