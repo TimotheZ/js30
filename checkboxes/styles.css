@@ -5,7 +5,6 @@ body {
 }
 
 .inbox {
-    border: 1px solid black;
     width: 20rem;
     position: absolute; /* postulat de départ */
     top: 50%; left: 50%; /* à 50%/50% du parent référent */
