@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konami Code</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+    <style>
+        p {
+            font-weight: bold;
+            font-size: 2.5rem;
+            width: 30%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Trouvez le Konami Code !</p>
+    </div>
+    <script>        
+      const pressed = [];
+      const secretCode = 'devjs';
+      window.addEventListener('keyup', (e) => {
+        console.log(e.key);
+        pressed.push(e.key);
+        // splice() modifie le contenu d'un tableau en retirant des éléments et/ou en ajoutant
+        // -secretCode pour lire de la fin au debut, ensuite on va resteindre notre array au nombre de caractère de notre secretcode 
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        console.log(pressed);
+        // join() crée et renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
+        // join('') -> expected output: "FireAirWater"
+        // includes() permet de déterminer si un tableau contient une valeur et renvoie true si c'est le cas
+        if(pressed.join('').includes(secretCode)) {
+          console.log('trouve !');
+          cornify_add();        
+        }
+      });
+    </script>
+</body>
+</html>
