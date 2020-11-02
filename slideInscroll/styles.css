@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: azure;
+}
+.container {
+    width: 34%;
+    border: 1px solid aliceblue;
+    margin-left: 37rem;    
+    font-size: 1.3rem;
+    margin-top: 5rem;
+    background-color: white;
+}
+
+img {
+    width: 40%;
+}
+
+.align-left {
+    float: left;
+}
+
+.align-right {
+    float: right;
+}
+
+.slide-in {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+/* Cible tous les éléments ayant la classe "align-left" et "slide-in" */
+.align-left.slide-in {
+    transform: translateX(-30%) scale(0.95);
+}
+
+.align-right.slide-in {
+    transform: translateX(30%) scale(0.95);
+}
+
+.slide-in.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
