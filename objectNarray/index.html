@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Reference vs Copy</title>
+</head>
+<body>
+    <script>
+        // Strings, numbers 
+    //   let age = 100;
+    //   let age2 = age;
+    //   console.log(age, age2);
+    //   age = 200;
+    //   console.log(age, age2);
+
+    //   let name = 'wes'
+    //   let name2 = name;
+    //   console.log(name, name2);
+    //   name = 'Wesleyy';
+    //   console.log(name, name2);
+
+    // notre array réferent
+      const players = ['Tim', 'Mat', 'Je'];
+    // notre copy de notre array réferent
+      const team = players;
+
+      console.log(players, team);
+
+    // lorsqu'on fait ça, ça édite aussi dans notre array referent
+      //team[3] = 'Jeje';
+    // création d'une copy de notre array réferent pour regler le probleme
+      const team2 = players.slice();
+
+      // ou création d'un nouveau array et concatener l'ancien dedans
+      const team3 = [].concat(players);
+
+      // possibilité aussi d'utiliser les Spread (il va prendre tous les items à l'exterieur de notre iterable et les mettre dans son array)
+      const team4 = [...players];
+      team4[3] = 'testttt';
+      console.log(team4);
+
+      const team5 = Array.from(players);
+      // maintenant lorsqu'on met à jour nos array, l'original ne change pas
+
+
+      // Nous allons voir pareils avec les objets
+      const person = {
+        name : 'Tim',
+        age : 21
+      }
+
+      // création d'une copy de notre objet (ça va comme précedement mettre à jour notre objet referent)
+      // const captain = person;
+      // captain.number = 27;
+
+      // pour copy notre objet on va utilier cette méthode :
+      const cap2 = Object.assign({}, person, { number : 99});
+      console.log(cap2);
+
+      // Spread operator
+      const cap3 = {...person};
+      cap3['nom'] = 'Berber';
+    </script> 
+</body>
+</html>
