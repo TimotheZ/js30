@@ -1,0 +1,40 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url('img/workmood.jpg');
+}
+
+div {
+    width: 17%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    border: 1px solid antiquewhite;
+    background-color: white;
+}
+
+form, h1 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 2.5rem;
+}
+
+li {
+    width: 80%;
+    font-weight: bold;  
+    padding: 0.5em;
+    border-bottom: 1px solid black;   
+}
+
+input {
+    padding: 0.3em;
+}
